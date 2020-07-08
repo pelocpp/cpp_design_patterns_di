@@ -43,4 +43,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Readme.md" />
+    <None Include="..\Resources\Readme_01_Overview.md">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Readme_02_Hypodermic.md">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\DI_Comic.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

@@ -29,6 +29,14 @@
     <ClCompile Include="Source6.cpp" />
     <ClCompile Include="Source7.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Readme.md" />
+    <None Include="..\Resources\Readme_01_Overview.md" />
+    <None Include="..\Resources\Readme_02_Hypodermic.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\DI_Comic.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{0C81C343-6678-48B3-AD7A-35F23CC6475E}</ProjectGuid>
