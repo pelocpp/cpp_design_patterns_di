@@ -25,12 +25,6 @@
     <None Include="..\Resources\Readme_01_Overview.md">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\Readme_04_Hypodermic.md">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\Readme_03_DI_Basics.md">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Resources\dp_di_01_principles.svg">
       <Filter>Resource Files</Filter>
     </None>
@@ -41,6 +35,15 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\dp_di_03_ioc_and_patterns.svg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Readme_05_Hypodermic.md">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Readme_04_DI_Basics.md">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Readme_03_Basics_02.md">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

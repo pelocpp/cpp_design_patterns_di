@@ -25,8 +25,9 @@
     <None Include="..\Resources\dp_di_03_ioc_and_patterns.svg" />
     <None Include="..\Resources\Readme_01_Overview.md" />
     <None Include="..\Resources\Readme_02_Basics.md" />
-    <None Include="..\Resources\Readme_03_DI_Basics.md" />
-    <None Include="..\Resources\Readme_04_Hypodermic.md" />
+    <None Include="..\Resources\Readme_03_Basics_02.md" />
+    <None Include="..\Resources\Readme_04_DI_Basics.md" />
+    <None Include="..\Resources\Readme_05_Hypodermic.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\DI_Comic.png" />

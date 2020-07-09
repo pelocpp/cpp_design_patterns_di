@@ -151,7 +151,7 @@ da die `CustomerBusinessLogic`-Klasse die Referenz (Pointer oder vergleichbares)
 Außerdem wird ein Objekt der `DataAccess`-Klasse erstellt,
 die `CustomerBusinessLogic`-Klasse ist somit für die Lebensdauer dieses Objekts mit zuständig.
 
-Das heißt:https://sourcemaking.com/
+Das heißt:
 
   1. `CustomerBusinessLogic`- und `DataAccess`-Klassen sind eng gekoppelte Klassen.
     Änderungen in der `DataAccess`-Klasse ziehen Änderungen in der `CustomerBusinessLogic`-Klasse nach sich.
