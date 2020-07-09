@@ -19,23 +19,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Program.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Source1.cpp" />
-    <ClCompile Include="Source2.cpp" />
-    <ClCompile Include="Source3.cpp" />
-    <ClCompile Include="Source4.cpp" />
-    <ClCompile Include="Source5.cpp" />
-    <ClCompile Include="Source6.cpp" />
-    <ClCompile Include="Source7.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\Readme.md" />
+    <None Include="..\Resources\dp_di_01_principles.svg" />
+    <None Include="..\Resources\dp_di_02_n_tier_architecture.svg" />
+    <None Include="..\Resources\dp_di_03_ioc_and_patterns.svg" />
     <None Include="..\Resources\Readme_01_Overview.md" />
-    <None Include="..\Resources\Readme_02_Hypodermic.md" />
+    <None Include="..\Resources\Readme_02_Basics.md" />
+    <None Include="..\Resources\Readme_03_DI_Basics.md" />
+    <None Include="..\Resources\Readme_04_Hypodermic.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\DI_Comic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\BasicSamples\BasicSample.cpp" />
+    <ClCompile Include="..\Hypodermic\Source.cpp" />
+    <ClCompile Include="..\Hypodermic\Source1.cpp" />
+    <ClCompile Include="..\Hypodermic\Source2.cpp" />
+    <ClCompile Include="..\Hypodermic\Source3.cpp" />
+    <ClCompile Include="..\Hypodermic\Source4.cpp" />
+    <ClCompile Include="..\Hypodermic\Source5.cpp" />
+    <ClCompile Include="..\Hypodermic\Source6.cpp" />
+    <ClCompile Include="..\Hypodermic\Source7.cpp" />
+    <ClCompile Include="..\Program.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
