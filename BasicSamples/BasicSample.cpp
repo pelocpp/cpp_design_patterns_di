@@ -140,7 +140,6 @@ public:
     }
 };
 
-
 class DataAccessFactory2
 {
 public:
@@ -168,3 +167,84 @@ public:
 };
 
 // ==========================================================
+
+// constructor injection
+
+class CustomerBusinessLogic3
+{
+private:
+    ICustomerDataAccess* m_custDataAccess;
+
+public:
+    CustomerBusinessLogic3(ICustomerDataAccess* custDataAccess)
+    {
+        m_custDataAccess = custDataAccess;
+    }
+
+    std::string ProcessCustomerData(int id)
+    {
+        return m_custDataAccess->GetCustomerName(id);
+    }
+};
+
+class CustomerService
+{
+private:
+    CustomerBusinessLogic3* m_customerBL;
+
+public:
+    CustomerService()
+    {
+        ICustomerDataAccess* iaccess = new CustomerDataAccess();
+        m_customerBL = new CustomerBusinessLogic3(iaccess);
+    }
+
+    std::string GetCustomerName(int id) {
+        return m_customerBL->ProcessCustomerData(id);
+    }
+};
+
+// ==========================================================
+
+// property injection
+
+class CustomerBusinessLogic4
+{
+private:
+    ICustomerDataAccess* m_custDataAccess;
+
+public:
+    CustomerBusinessLogic4() = default;
+
+    void setDataAccess(ICustomerDataAccess* custDataAccess)
+    {
+        m_custDataAccess = custDataAccess;
+    }
+
+    std::string ProcessCustomerData(int id)
+    {
+        return m_custDataAccess->GetCustomerName(id);
+    }
+};
+
+class CustomerService4
+{
+private:
+    CustomerBusinessLogic4* m_customerBL;
+
+public:
+    CustomerService4()
+    {
+        m_customerBL = new CustomerBusinessLogic4();
+
+        ICustomerDataAccess* iaccess = new CustomerDataAccess();
+        m_customerBL->setDataAccess(iaccess);
+    }
+
+    std::string GetCustomerName(int id) {
+        return m_customerBL->ProcessCustomerData(id);
+    }
+};
+
+// ==========================================================
+

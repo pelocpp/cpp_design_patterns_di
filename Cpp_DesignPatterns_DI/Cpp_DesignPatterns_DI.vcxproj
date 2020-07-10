@@ -23,7 +23,8 @@
     <None Include="..\Resources\dp_di_01_principles.svg" />
     <None Include="..\Resources\dp_di_02_n_tier_architecture.svg" />
     <None Include="..\Resources\dp_di_03_ioc_and_patterns.svg" />
-    <None Include="..\Resources\dp_di_04_relationship_classes.svg" />
+    <None Include="..\Resources\dp_di_04_relationship_classes_a.svg" />
+    <None Include="..\Resources\dp_di_04_relationship_classes_b.svg" />
     <None Include="..\Resources\Readme_01_Overview.md" />
     <None Include="..\Resources\Readme_02_Basics_01_IoC.md" />
     <None Include="..\Resources\Readme_03_Basics_02_DIP.md" />
