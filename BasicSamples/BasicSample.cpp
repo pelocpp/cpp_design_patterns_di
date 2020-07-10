@@ -121,3 +121,50 @@ public:
         return dataAccess->GetCustomerName(id);
     }
 };
+
+// ==========================================================
+
+class ICustomerDataAccess
+{
+public:
+    virtual std::string GetCustomerName(int id) = 0;
+};
+
+class CustomerDataAccess : public ICustomerDataAccess
+{
+public:
+    CustomerDataAccess() = default;
+
+    std::string GetCustomerName(int id) {
+        return "Dummy Customer Name"; // get it from DB in real app
+    }
+};
+
+
+class DataAccessFactory2
+{
+public:
+    static ICustomerDataAccess* GetCustomerDataAccessObj()
+    {
+        return new CustomerDataAccess();
+    }
+};
+
+class CustomerBusinessLogic2
+{
+private:
+    ICustomerDataAccess* m_custDataAccess;
+
+public:
+    CustomerBusinessLogic2()
+    {
+        m_custDataAccess = DataAccessFactory2::GetCustomerDataAccessObj();
+    }
+
+    std::string GetCustomerName(int id)
+    {
+        return m_custDataAccess->GetCustomerName(id);
+    }
+};
+
+// ==========================================================

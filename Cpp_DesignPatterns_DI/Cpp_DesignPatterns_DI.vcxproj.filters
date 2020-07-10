@@ -28,9 +28,6 @@
     <None Include="..\Resources\dp_di_01_principles.svg">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\Readme_02_Basics.md">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Resources\dp_di_02_n_tier_architecture.svg">
       <Filter>Resource Files</Filter>
     </None>
@@ -43,7 +40,10 @@
     <None Include="..\Resources\Readme_04_DI_Basics.md">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\Readme_03_Basics_02.md">
+    <None Include="..\Resources\Readme_02_Basics_01_IoC.md">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Readme_03_Basics_02_DIP.md">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

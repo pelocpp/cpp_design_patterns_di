@@ -86,10 +86,10 @@ oder die Kontrolle über die Erstellung und Verknüpfung (Bindung) abhängiger Obje
 
 ###### Dependency Inversion Principle
 
-Da *Dependency Inversion Principle* sagt aus, dass High-Level-Module nicht von Low-Level-Modulen abhängen sollten.
+Das *Dependency Inversion Principle* sagt aus, dass High-Level-Module nicht von Low-Level-Modulen abhängen sollten.
 Beide Ebenen (Klassen, Module) sollten mittels Schnittstellen abstrahiert werden.
 
-Schnittstellen sollen nicht von Details, sondern die Details sollten von den Schnittstellen abhängen.
+Schnittstellen sollten nicht von Details, sondern die Details sollten von den Schnittstellen abhängen.
 
 Das *Dependency Inversion Principle* wurde von Robert Martin (a.k.a. "Onkel Bob") erfunden.
 Er ist einer der Begründer der **SOLID**-Prinzipien.
