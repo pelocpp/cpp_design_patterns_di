@@ -23,11 +23,13 @@
     <None Include="..\Resources\dp_di_01_principles.svg" />
     <None Include="..\Resources\dp_di_02_n_tier_architecture.svg" />
     <None Include="..\Resources\dp_di_03_ioc_and_patterns.svg" />
+    <None Include="..\Resources\dp_di_04_relationship_classes.svg" />
     <None Include="..\Resources\Readme_01_Overview.md" />
     <None Include="..\Resources\Readme_02_Basics_01_IoC.md" />
     <None Include="..\Resources\Readme_03_Basics_02_DIP.md" />
-    <None Include="..\Resources\Readme_04_DI_Basics.md" />
-    <None Include="..\Resources\Readme_05_Hypodermic.md" />
+    <None Include="..\Resources\Readme_04_Basics_03_DI.md" />
+    <None Include="..\Resources\Readme_06_DI_Basics.md" />
+    <None Include="..\Resources\Readme_07_Hypodermic.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\DI_Comic.png" />
