@@ -2,7 +2,9 @@
 #include <memory>
 #include "Hypodermic/Hypodermic.h"
 
-// NOCHMaL: Wenn zweimal dasselbe Inferface registriert wird, dann kann man das beeinflussen ... mit useIfNone
+/*
+ * Beeinflussung einer Mehrfach-Registrierung (registerType) mit useIfNone
+ */
 
 namespace Hypodermic_Test_05 {
 
@@ -54,7 +56,7 @@ void test_hypodermic_05() {
         Hypodermic::ContainerBuilder builder;
 
         builder.registerType<ConcreteMessageSerializer>().as< IMessageSerializer >();
-        builder.registerType<NoopMessageSerializer>().as< IMessageSerializer >().useIfNone();
+        builder.registerType<NoopMessageSerializer>().as< IMessageSerializer >().useIfNone();  // <== put 'useIfNone' into comments
 
         std::shared_ptr<Hypodermic::Container> container = builder.build();
 

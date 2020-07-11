@@ -1,7 +1,9 @@
 #include <iostream>
 #include "Hypodermic/Hypodermic.h"
 
-// if same type is registered twice, the last one wins
+/*
+ * If same type is registered twice, the last one wins
+ */
 
 namespace Hypodermic_Test_01 {
 
@@ -30,7 +32,7 @@ namespace Hypodermic_Test_01 {
         virtual void write(const std::string& message) = 0;
     };
 
-
+    // First implementation of interface 'IMessageWriter'
     class ConsoleMessageWriter : public IMessageWriter
     {
     public:
@@ -46,6 +48,7 @@ namespace Hypodermic_Test_01 {
         std::shared_ptr< IMessageSerializer > m_serializer;
     };
 
+    // A second implementation of interface 'IMessageWriter'
     class ConsoleMessageWriterNewLine : public IMessageWriter
     {
     public:
@@ -77,27 +80,23 @@ void test_hypodermic_01() {
         // What we say here is: when I need an IMessageSerializer,
         // I want you to use this implementation.
 
-        // builder.registerType<LengthPrefixedMessageSerializer>();
         builder.registerType<LengthPrefixedMessageSerializer>().as< IMessageSerializer >();
         builder.registerType<ConsoleMessageWriter>().as< IMessageWriter >();
-        builder.registerType<ConsoleMessageWriterNewLine>().as< IMessageWriter >();
+        builder.registerType<ConsoleMessageWriterNewLine>().as< IMessageWriter >();  // <== put this line into comment
 
         builder.validate();
 
-        // Actually build the `Container` we have just configured.
+        // actually build the `Container` we have just configured.
         std::shared_ptr<Hypodermic::Container> container = builder.build();
 
         // Container, give us an instance of `IMessageWriter`.
         std::shared_ptr<IMessageWriter> messageWriter = container->resolve<IMessageWriter>();
 
-        // Alright then, we can write some message.
-        messageWriter->write("Abc");
-        messageWriter->write("Defghi");
-        messageWriter->write("Ghifsdsfs");
+        messageWriter->write("123");
+        messageWriter->write("456");
+        messageWriter->write("789");
     }
     catch (std::exception ex) {
         std::cout << ex.what() << std::endl;
     }
-
-
 }

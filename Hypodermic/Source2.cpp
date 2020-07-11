@@ -1,7 +1,9 @@
 #include <iostream>
 #include "Hypodermic/Hypodermic.h"
 
-// registerType supports 'single instance' and the opposite behaviour
+/*
+ * registerType supports 'single instance' and the opposite behaviour
+ */
 
 namespace Hypodermic_Test_02 {
 
@@ -74,7 +76,8 @@ void test_hypodermic_02() {
         Hypodermic::ContainerBuilder builder;
 
         // note feature of 'Shared Instances':
-        builder.registerType<LengthPrefixedMessageSerializer>().as< IMessageSerializer >().singleInstance();
+        // builder.registerType<LengthPrefixedMessageSerializer>().as< IMessageSerializer >().singleInstance();  // <== remove line comment
+        builder.registerType<LengthPrefixedMessageSerializer>().as< IMessageSerializer >();
         builder.registerType<ConsoleMessageWriter>().as< IMessageWriter >();
 
         // Actually build the `Container` we have just configured.

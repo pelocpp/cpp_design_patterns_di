@@ -1,9 +1,11 @@
 #include <iostream>
 #include "Hypodermic/Hypodermic.h"
 
-namespace Hypodermic_Test_06 {
+/*
+ * Demonstration einer tiefer verschachtelten Auflösung von Klassenabhängigkeiten
+ */
 
-    // demonstrating nested resolution
+namespace Hypodermic_Test_06 {
 
     class IA {
     public:
@@ -66,7 +68,7 @@ void test_hypodermic_06() {
     {
         Hypodermic::ContainerBuilder builder;
         builder.registerType<A>().as<IA>();
-        builder.registerType<B>().as<IB>();
+        builder.registerType<B>().as<IB>();   // <== put this line into comment
         builder.registerType<C>().as<IC>();
         std::shared_ptr<Hypodermic::Container> container = builder.build();
 

@@ -1,9 +1,9 @@
 #include <iostream>
 #include "Hypodermic/Hypodermic.h"
 
-// registerInstance normally yields 'single instance' behaviour
-
-using namespace Hypodermic;
+/*
+ * registerInstance normally yields 'single instance' behaviour
+ */
 
 namespace Hypodermic_Test_03 {
 
@@ -28,12 +28,12 @@ void test_hypodermic_03() {
 
     try
     {
-        ContainerBuilder builder;
+        Hypodermic::ContainerBuilder builder;
 
         std::shared_ptr<SomeConfiguration> configuration = std::make_shared<SomeConfiguration>();
         builder.registerInstance(configuration);
 
-        std::shared_ptr<Container> container = builder.build();
+        std::shared_ptr<Hypodermic::Container> container = builder.build();
 
         std::shared_ptr<SomeConfiguration> resolvedConfiguration = container->resolve<SomeConfiguration>();
         assert(resolvedConfiguration == configuration);

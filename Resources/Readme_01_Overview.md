@@ -10,6 +10,8 @@ Benötigt ein Objekt beispielsweise bei seiner Initialisierung ein anderes Objekt
 ist diese Abhängigkeit an einem zentralen Ort hinterlegt. Die Abhängigkeit wird also nicht vom zu
 initialisierenden Objekt selbst aufgelöst.
 
+#### Ein kurzer Überblick
+
 Die *Dependency Injection* ist eine Programmiertechnik, die eine Klasse von ihren Abhängigkeiten unabhängig macht.
 Dies wird erreicht, indem die Verwendung eines Objekts von seiner Erstellung entkoppelt wird.
 Auf diese Weise lassen sich Sie die Prinzipien der *Dependency Injection* und das *Single Responsibility Prinzip*
@@ -19,8 +21,6 @@ Die Auflösung einer solchen Abgängigkeit bezeichnet man auch als "Injektion" (*I
 das in diesem Zusammenhang zu erzeugende Objekt (auch als "Service" bezeichnet),
 wird in ein Empfängerobjekt (auch als "Client" bezeichnet) *injiziert*.
 
-An Hand dieser Definitionen bzw. Aussagen erschließt sich sicherlich nicht ein tiefschürfendes Verständnis,
-....
 
 Wenn eine Klasse A ein oder mehrere Funktionen einer Klasse B verwendet, dann sagt man,
 dass Klasse A eine Abhängigkeit zu Klasse B aufweist.
@@ -37,9 +37,6 @@ das Eruieren dieser *Abhängigkeit* wird als **Dependency Injection** bezeichnet.
 <img src="DI_Comic.png" width="800">
 
 Abbildung 1: **Dependency Injection** bildlich dargestellt.
-
-#### Die *Dependency Injection* Technik
-
 
 
 #### Motivation für den Einsatz von DI
@@ -59,18 +56,16 @@ Sie können sich DI als den Mittelsmann in unserem Code vorstellen, der die gesam
 
 Auf diese Weise schaffen wir es, eine Fahrzeugklasse `Car` unabhängig von der Erstellung von Objekten wie Räder, Batterien usw. zu definieren!
 
-#### Einführung
-
-https://www.tutorialsteacher.com/ioc/introduction
+#### Die Details im Überblick
 
 Die Begriffe *Inversion of Control* (*IoC*), *Dependency Inversion Principle* (*DIP*), *Dependency Injection* (*DI*) 
 und *IoC*-Container sind möglicherweise bekannt. Aber ist Ihnen klar, was jeder Begriff bedeutet?
 
 <img src="dp_di_01_principles.svg" width="600">
 
-Abbildung 1: Buzzwords im "Inversion of Control" Umfeld.
+Abbildung 2: Buzzwords im "Inversion of Control" Umfeld.
 
-Wie in Abbildung 1 dargestellt, sind *IoC* und *DIP* allgemeine Entwurfsprinzipien, 
+Wie in Abbildung 2 dargestellt, sind *IoC* und *DIP* allgemeine Entwurfsprinzipien, 
 die beim Entwerfen von Klassen verwendet werden sollten. Da es sich um Entwurfsprinzipien handelt,
 empfehlen sie bestimmte "Best Practices", helfen jedoch nicht mit spezifischen Implementierungsdetails.
 *Dependency Injection* (*DI*) ist ein Software Entwurfsmuster und der *IoC*-Container wird durch ein Framework bereitgestellt.
@@ -105,6 +100,13 @@ Ein *IoC*-Container ist ein Framework zur automatisierten Verwaltung der *Depend
 in einer Anwendung, so dass der Programmierer hierfür nicht mehr Zeit und Aufwand spendieren muss.
 
 
+## Literaturhinweise
+
+*Hinweise*:
+
+Viele Beispiele dieses Repositories stammen aus
+
+[Hypodermic IoC Containers](https://www.tutorialsteacher.com/ioc/introduction)
 
 ---
 

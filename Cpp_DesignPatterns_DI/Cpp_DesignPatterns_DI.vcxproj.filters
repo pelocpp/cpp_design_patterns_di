@@ -46,9 +46,6 @@
     <None Include="..\Resources\Readme_06_DI_Basics.md">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\Readme_04_Basics_03_DI.md">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Resources\dp_di_04_relationship_classes_a.svg">
       <Filter>Resource Files</Filter>
     </None>
@@ -56,6 +53,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\Readme_05_Basics_04_IoC_Container.md">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Readme_04_Basics_03_DI.md">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

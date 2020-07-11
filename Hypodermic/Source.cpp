@@ -74,8 +74,6 @@ namespace Hypodermic_Test_00 {
 
             builder.registerType< ConsoleMessageWriter >().as< IMessageWriter >();
 
-            // builder.registerInstanceFactory()
-
             // Actually build the `Container` we have just configured.
             m_container = builder.build();
         }

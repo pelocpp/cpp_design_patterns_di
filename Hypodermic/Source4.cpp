@@ -2,9 +2,10 @@
 #include <memory>
 #include "Hypodermic/Hypodermic.h"
 
-// Wiring the internal logging mechanism
-
-// Wenn zweimal dasselbe Inferface registriert wird, dann stört das Hypo nicht ! 
+/*
+ * a) Hypodermic Logging Mechanismus
+ * b) Wenn zweimal dasselbe Inferface registriert wird, dann stört das Hypodermic nicht ! 
+ */
 
 namespace Hypodermic_Test_04 {
 
@@ -71,18 +72,8 @@ void test_hypodermic_04() {
 
         builder.registerType<Writer1>().as< IMessageWriter >();
         builder.registerType<Writer1>().as< IMessageWriter >();
-      //  builder.registerType<ConsoleMessageWriterNewLine>().as< IMessageWriter >();
-
-        //std::shared_ptr<SomeConfiguration> configuration = std::make_shared<SomeConfiguration>();
-        //builder.registerInstance(configuration);
 
         std::shared_ptr<Hypodermic::Container> container = builder.build();
-
-        //std::shared_ptr<SomeConfiguration> resolvedConfiguration = container->resolve<SomeConfiguration>();
-        //assert(resolvedConfiguration == configuration);
-
-        //std::shared_ptr<SomeConfiguration> anotherConfiguration = container->resolve<SomeConfiguration>();
-        //assert(resolvedConfiguration == anotherConfiguration);
     }
     catch (std::exception ex) {
         std::cout << ex.what() << std::endl;

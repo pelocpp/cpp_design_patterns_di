@@ -1,9 +1,9 @@
 #include <iostream>
 #include "Hypodermic/Hypodermic.h"
 
-// registerInstanceFactory 
-
-using namespace Hypodermic;
+/*
+ * Demonstration einer Factory für Klassen / Methode registerInstanceFactory
+ */
 
 namespace Hypodermic_Test_07 {
 
@@ -32,9 +32,9 @@ void test_hypodermic_07() {
 
     try
     {
-        ContainerBuilder builder;
+        Hypodermic::ContainerBuilder builder;
 
-        builder.registerInstanceFactory([](ComponentContext& context) {
+        builder.registerInstanceFactory([](Hypodermic::ComponentContext& context) {
             return std::make_shared< SomeConfiguration >();
         });
 
