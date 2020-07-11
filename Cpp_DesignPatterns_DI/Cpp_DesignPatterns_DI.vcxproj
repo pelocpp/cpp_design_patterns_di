@@ -29,6 +29,7 @@
     <None Include="..\Resources\Readme_02_Basics_01_IoC.md" />
     <None Include="..\Resources\Readme_03_Basics_02_DIP.md" />
     <None Include="..\Resources\Readme_04_Basics_03_DI.md" />
+    <None Include="..\Resources\Readme_05_Basics_04_IoC_Container.md" />
     <None Include="..\Resources\Readme_06_DI_Basics.md" />
     <None Include="..\Resources\Readme_07_Hypodermic.md" />
   </ItemGroup>

@@ -55,6 +55,9 @@
     <None Include="..\Resources\dp_di_04_relationship_classes_b.svg">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\Resources\Readme_05_Basics_04_IoC_Container.md">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\DI_Comic.png">

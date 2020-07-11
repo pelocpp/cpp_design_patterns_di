@@ -248,3 +248,54 @@ public:
 
 // ==========================================================
 
+// method / interface injection
+
+class IDataAccessDependency
+{
+public:
+    virtual void SetDependency(ICustomerDataAccess*) = 0; 
+};
+
+class CustomerBusinessLogic5 : public IDataAccessDependency
+{
+private:
+    ICustomerDataAccess* m_custDataAccess;
+
+public:
+    CustomerBusinessLogic5() = default;
+
+    void SetDependency(ICustomerDataAccess* custDataAccess) override
+    {
+        m_custDataAccess = custDataAccess;
+    }
+
+    std::string ProcessCustomerData(int id)
+    {
+        return m_custDataAccess->GetCustomerName(id);
+    }
+};
+
+class CustomerService5
+{
+private:
+    CustomerBusinessLogic5* m_customerBL;
+
+public:
+    CustomerService5()
+    {
+        m_customerBL = new CustomerBusinessLogic5();
+
+        ICustomerDataAccess* iaccess = new CustomerDataAccess();
+        ((IDataAccessDependency*) m_customerBL)->SetDependency(iaccess);
+
+        // can be written shorter:
+        m_customerBL->SetDependency(iaccess);
+    }
+
+    std::string GetCustomerName(int id) {
+        return m_customerBL->ProcessCustomerData(id);
+    }
+};
+
+// ==========================================================
+

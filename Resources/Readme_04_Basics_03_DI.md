@@ -44,8 +44,8 @@ Technisch betrachten kann dieses "*injizieren*" auf drei Arten erfolgen:
   * *Property-Injection*:<br/>Der Client stellt eine *setter*-Methode zur Verfügung,
      mit deren Hilfe der *Injektor* die Abhängigkeit injiziert.
   * *Interface-Injection*:<br/>Bei dieser Art der Injektion implementiert die Clientklasse eine Schnittstelle,
-    die die Methode(n) zum Bereitstellen der Abhängigkeit enthalten,
-    und der Injektor verwendet diese Schnittstelle, um die Abhängigkeit der Clientklasse bereitzustellen.
+    die die Methode(n) zum Bereitstellen der Abhängigkeit(en) enthalten.
+    Der Injektor verwendet diese Schnittstelle, um die Abhängigkeit(en) der Clientklasse bereitzustellen.
 
 In den Verantwortungsbereich einer *Dependency Injection* fallen somit:
 
@@ -255,9 +255,64 @@ dass ein `CustomerDataAccess`-Objekt geeignet injiziert wird.
 
 ###### *Interface-Injection*
 
-DIE DRITTE VARIANTE FEHLT !!!
+Bei der Variante *Interface-Injection* werden Abhängigkeiten durch Methoden bereitgestellt.
+Diese Methode kann eine Klassenmethode oder eine Schnittstellenmethode sein.
 
+Das folgende Beispiel demonstriert *Interface-Injection* am Beispiel einer schnittstellenbasierten Methode:
 
+```cpp
+class IDataAccessDependency
+{
+public:
+    virtual void SetDependency(ICustomerDataAccess*) = 0; 
+};
+
+class CustomerBusinessLogic : public IDataAccessDependency
+{
+private:
+    ICustomerDataAccess* m_custDataAccess;
+
+public:
+    CustomerBusinessLogic() = default;
+
+    void SetDependency(ICustomerDataAccess* custDataAccess) override
+    {
+        m_custDataAccess = custDataAccess;
+    }
+
+    std::string ProcessCustomerData(int id)
+    {
+        return m_custDataAccess->GetCustomerName(id);
+    }
+};
+
+class CustomerService
+{
+private:
+    CustomerBusinessLogic* m_customerBL;
+
+public:
+    CustomerService()
+    {
+        m_customerBL = new CustomerBusinessLogic();
+
+        ICustomerDataAccess* iaccess = new CustomerDataAccess();
+        ((IDataAccessDependency*) m_customerBL)->SetDependency(iaccess);
+
+        // can be written shorter:
+        m_customerBL->SetDependency(iaccess);
+    }
+
+    std::string GetCustomerName(int id) {
+        return m_customerBL->ProcessCustomerData(id);
+    }
+};
+```
+
+Die Klasse `CustomerBusinessLogic` implementiert die `IDataAccessDependency`-Schnittstelle.
+Diese Schnittstelle definiert eine Methode `SetDependency`.
+Die Injektorklasse `CustomerService` verwendet diese Methode nun,
+um die abhängige Klasse (`CustomerDataAccess`) in die Clientklasse zu injizieren.
 
 ---
 
