@@ -88,7 +88,7 @@ oder einer abstrakten Klasse erstellen können.
 Gemäß *Dependency Inversion Principle* sollte die Klasse `CustomerBusinessLogic` (High-Level-Modul)
 nicht von der konkreten `DataAccess`-Klasse (Low-Level-Modul) abhängen.
 Beide Klassen sollten von Abstraktionen abhängen,
-das heußt, beide Klassen sollten von einer Schnittstelle oder einer abstrakten Klasse abhängig sein.
+das heißt, beide Klassen sollten von einer Schnittstelle oder einer abstrakten Klasse abhängig sein.
 
 Wie könnten entsprechende Schnittstellen (abstrakte Klassen) definiert sein?
 Wie wir bereits wissen, verwendet `CustomerBusinessLogic` die `GetCustomerName`-Methode

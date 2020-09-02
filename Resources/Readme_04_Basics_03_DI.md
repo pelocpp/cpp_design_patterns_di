@@ -197,7 +197,7 @@ Daher muss die `CustomerBusinessLogic`-Klasse kein Objekt von `CustomerDataAcces
 auf welche Weise auch immer (unmittelbar mit `new`, mit einer *Factory* etc.).
 
 Die aufrufende Klasse (`CustomerService`) erstellt die entsprechende `DataAccess`-Klasse
-und übergibt deren Referenz (Pointer, ,etc.) an die `CustomerBusinessLogic`-Klasse.
+und übergibt deren Referenz (Pointer, etc.) an die `CustomerBusinessLogic`-Klasse.
 Auf diese Weise werden die Klassen `CustomerBusinessLogic` und `CustomerDataAccess` zu "weitestgehend"
 lose gekoppelten Klassen.
 
