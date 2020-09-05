@@ -35,7 +35,7 @@ void test_hypodermic_07() {
         Hypodermic::ContainerBuilder builder;
 
         builder.registerInstanceFactory([](Hypodermic::ComponentContext& context) {
-            return std::make_shared< SomeConfiguration >();
+            return std::make_shared< SomeConfiguration>();
         });
 
         std::shared_ptr<Hypodermic::Container> container = builder.build();

@@ -40,7 +40,6 @@ namespace Hypodermic_Test_02 {
         virtual void write(const std::string& message) = 0;
     };
 
-
     class ConsoleMessageWriter : public IMessageWriter
     {
     public:
@@ -60,7 +59,7 @@ namespace Hypodermic_Test_02 {
         }
 
     private:
-        std::shared_ptr< IMessageSerializer > m_serializer;
+        std::shared_ptr<IMessageSerializer> m_serializer;
     };
 }
 
@@ -76,14 +75,14 @@ void test_hypodermic_02() {
         Hypodermic::ContainerBuilder builder;
 
         // note feature of 'Shared Instances':
-        // builder.registerType<LengthPrefixedMessageSerializer>().as< IMessageSerializer >().singleInstance();  // <== remove line comment
-        builder.registerType<LengthPrefixedMessageSerializer>().as< IMessageSerializer >();
-        builder.registerType<ConsoleMessageWriter>().as< IMessageWriter >();
+        // builder.registerType<LengthPrefixedMessageSerializer>().as<IMessageSerializer>().singleInstance();  // <== remove line comment
+        builder.registerType<LengthPrefixedMessageSerializer>().as<IMessageSerializer>();
+        builder.registerType<ConsoleMessageWriter>().as<IMessageWriter>();
 
-        // Actually build the `Container` we have just configured.
+        // actually build the `Container` we have just configured.
         std::shared_ptr<Hypodermic::Container> container = builder.build();
 
-        // Container, give us an instance of `IMessageWriter`.
+        // container, give us an instance of `IMessageWriter`.
         std::shared_ptr<IMessageWriter> messageWriter = container->resolve<IMessageWriter>();
         messageWriter->write("ABC");
         messageWriter->write("XYZ");

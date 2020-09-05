@@ -18,6 +18,6 @@ Am Beispiel des [Hypodermic IoC Containers](https://github.com/ybainier/Hypoderm
 
 ## [IoC Container / Service Locator](Resources/Readme_05_Basics_04_IoC_Container.md)
 
-## [Ein Beispiel: Hypodermic](Resources/Readme_07_Hypodermic.md)
+## [Ein Beispiel: Hypodermic](Resources/Readme_06_Hypodermic.md)
 
 ---

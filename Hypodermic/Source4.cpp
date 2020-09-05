@@ -4,7 +4,7 @@
 
 /*
  * a) Hypodermic Logging Mechanismus
- * b) Wenn zweimal dasselbe Inferface registriert wird, dann stört das Hypodermic nicht ! 
+ * b) Wenn zweimal dasselbe Interface registriert wird, dann stört das Hypodermic nicht ! 
  */
 
 namespace Hypodermic_Test_04 {
@@ -47,13 +47,13 @@ namespace Hypodermic_Test_04 {
     class Writer1 : public IMessageWriter
     {
     public:
-        explicit Writer1(std::shared_ptr< IMessageSerializer > serializer) {}
+        explicit Writer1(std::shared_ptr<IMessageSerializer> serializer) {}
     };
 
     class Writer2 : public IMessageWriter
     {
     public:
-        explicit Writer2(std::shared_ptr< IMessageSerializer > serializer) {}
+        explicit Writer2(std::shared_ptr<IMessageSerializer> serializer) {}
     };
 }
 
@@ -70,8 +70,8 @@ void test_hypodermic_04() {
     {
         Hypodermic::ContainerBuilder builder;
 
-        builder.registerType<Writer1>().as< IMessageWriter >();
-        builder.registerType<Writer1>().as< IMessageWriter >();
+        builder.registerType<Writer1>().as<IMessageWriter>();
+        builder.registerType<Writer1>().as<IMessageWriter>();
 
         std::shared_ptr<Hypodermic::Container> container = builder.build();
     }

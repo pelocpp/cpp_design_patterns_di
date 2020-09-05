@@ -17,11 +17,11 @@ Die bedeutet, dass wir in der Anwendung diese Objekte weder manuell erstellen no
 In diesem Zusammenhang gibt es den Begriff des so genannten *DI-Lebenszyklus*:
 
   * **Register**: Der Container muss wissen, welche Abhängigkeit instanziiert werden muss,
-   wenn er auf einen bestimmten Typ stößt. Dieser Vorgang wird als Registrierung bezeichnet.
+   wenn er auf einen bestimmten Typ stößt. Dieser Vorgang wird als *Registrierung* bezeichnet.
    Grundsätzlich muss der Container in der Lage sein, eine Zuordnung von Typen verwalten zu können.
 
   * **Resolve**: Bei Verwendung des IoC-Containers werden Objekte nicht manuell erstellt.
-    Der Container erledigt das für uns. Dies nennt man Resolution.
+    Der Container erledigt das für uns. Dies nennt man *Resolution*.
     Der Container muss Methoden zum Auflösen des angegebenen Typs besitzen.
     Der Container kreiert ein Objekt des angegebenen Typs, fügt gegebenenfalls die erforderlichen Abhängigkeiten ein
     und gibt das Objekt zurück.
@@ -29,8 +29,6 @@ In diesem Zusammenhang gibt es den Begriff des so genannten *DI-Lebenszyklus*:
   * **Dispose**: Der Container muss die Lebensdauer der abhängigen Objekte verwalten.
    Die meisten IoC-Container enthalten verschiedene Lebenszeitmanager,
    um den Lebenszyklus eines Objekts zu verwalten und sie freizugeben.
-
-
 
 ---
 

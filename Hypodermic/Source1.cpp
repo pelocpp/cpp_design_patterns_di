@@ -45,7 +45,7 @@ namespace Hypodermic_Test_01 {
         }
 
     private:
-        std::shared_ptr< IMessageSerializer > m_serializer;
+        std::shared_ptr<IMessageSerializer> m_serializer;
     };
 
     // A second implementation of interface 'IMessageWriter'
@@ -62,7 +62,7 @@ namespace Hypodermic_Test_01 {
         }
 
     private:
-        std::shared_ptr< IMessageSerializer > m_serializer;
+        std::shared_ptr<IMessageSerializer> m_serializer;
     };
 }
 
@@ -80,9 +80,9 @@ void test_hypodermic_01() {
         // What we say here is: when I need an IMessageSerializer,
         // I want you to use this implementation.
 
-        builder.registerType<LengthPrefixedMessageSerializer>().as< IMessageSerializer >();
-        builder.registerType<ConsoleMessageWriter>().as< IMessageWriter >();
-        builder.registerType<ConsoleMessageWriterNewLine>().as< IMessageWriter >();  // <== put this line into comment
+        builder.registerType<LengthPrefixedMessageSerializer>().as<IMessageSerializer>();
+        builder.registerType<ConsoleMessageWriter>().as<IMessageWriter>();
+        builder.registerType<ConsoleMessageWriterNewLine>().as<IMessageWriter>();  // <== put this line into comment
 
         builder.validate();
 

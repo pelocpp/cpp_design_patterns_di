@@ -3,7 +3,7 @@
 #### Überblick
 
 In den Sources dieses Repositories werden eine Reihe von Beispielen
-auf Basis des Hypodermic IoC Containers vorgestellt:
+auf Basis des *Hypodermic* IoC Containers vorgestellt:
 
   * *Source.cpp*<br/>Testbeispiel aus dem Hypodermic Wiki / *Getting Started*. Man betrachte im Detail die einzelnen Schritte, die bei der Auflösung von `IMessageWriter` vollzogen werden:
 

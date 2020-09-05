@@ -106,14 +106,8 @@ public:
 
 class CustomerBusinessLogic
 {
-private:
-    DataAccess* m_dataAccess;
-
 public:
-    CustomerBusinessLogic()
-    {
-        m_dataAccess = new DataAccess();
-    }
+    CustomerBusinessLogic() {}
 
     std::string GetCustomerName(int id)
     {
@@ -135,7 +129,7 @@ class CustomerDataAccess : public ICustomerDataAccess
 public:
     CustomerDataAccess() = default;
 
-    std::string GetCustomerName(int id) {
+    std::string GetCustomerName(int id) override {
         return "Dummy Customer Name"; // get it from DB in real app
     }
 };

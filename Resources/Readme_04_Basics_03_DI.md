@@ -67,7 +67,7 @@ class CustomerDataAccess : public ICustomerDataAccess
 public:
     CustomerDataAccess() = default;
 
-    std::string GetCustomerName(int id) {
+    std::string GetCustomerName(int id) override {
         return "Dummy Customer Name";
     }
 };
@@ -102,7 +102,7 @@ public:
 Das Problem mit dem obigen Beispiel ist, dass wir `DataAccessFactory` in der `CustomerBusinessLogic`-Klasse verwenden.
 Angenommen, es gibt eine andere Implementierung von `ICustomerDataAccess`,
 und wir möchten diese neue Klasse in `CustomerBusinessLogic` verwenden,
-dann müssen wir auch den Quellcode der `CustomerBusinessLogic`-Klasse ändern.
+dann müssen wir auch den Quellcode der `CustomerBusinessLogic`-Klasse anpassen.
 
 Das *Dependency Injection* Entwurfsmuster löst dieses Problem dadurch, dass *abhängige* Objekte
 über einen bestimmten Konstruktor, ein Attribut (*setter*-Methode) oder die Methode einer Schnittstelle *injiziert* werden.
@@ -137,7 +137,7 @@ class CustomerDataAccess : public ICustomerDataAccess
 public:
     CustomerDataAccess() = default;
 
-    std::string GetCustomerName(int id) {
+    std::string GetCustomerName(int id) override {
         return "Dummy Customer Name";
     }
 };
@@ -169,8 +169,8 @@ public:
 };
 ```
 
-Die Klasse CustomerBusinessLogic enthält nun einen Konstruktor mit einem Parameter des Typs ICustomerDataAccess.
-Jetzt muss die aufrufende Klasse ein Objekt des Typs ICustomerDataAccess injizieren:
+Die Klasse `CustomerBusinessLogic` enthält nun einen Konstruktor mit einem Parameter des Typs `ICustomerDataAccess`.
+Jetzt muss die aufrufende Klasse ein Objekt des Typs `ICustomerDataAccess` injizieren:
 
 ```cpp
 class CustomerService
@@ -196,7 +196,7 @@ und injiziert es (mit Hilfe des Konstruktors) in die `CustomerBusinessLogic`-Kla
 Daher muss die `CustomerBusinessLogic`-Klasse kein Objekt von `CustomerDataAccess` mehr erstellen,
 auf welche Weise auch immer (unmittelbar mit `new`, mit einer *Factory* etc.).
 
-Die aufrufende Klasse (`CustomerService`) erstellt die entsprechende `DataAccess`-Klasse
+Die aufrufende Klasse (`CustomerService`) erstellt die entsprechende `CustomerDataAccess`-Klasse
 und übergibt deren Referenz (Pointer, etc.) an die `CustomerBusinessLogic`-Klasse.
 Auf diese Weise werden die Klassen `CustomerBusinessLogic` und `CustomerDataAccess` zu "weitestgehend"
 lose gekoppelten Klassen.
@@ -236,7 +236,6 @@ public:
     CustomerService()
     {
         m_customerBL = new CustomerBusinessLogic();
-
         ICustomerDataAccess* iaccess = new CustomerDataAccess();
         m_customerBL->setDataAccess(iaccess);
     }

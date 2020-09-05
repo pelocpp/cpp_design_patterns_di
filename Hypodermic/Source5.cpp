@@ -55,8 +55,8 @@ void test_hypodermic_05() {
     {
         Hypodermic::ContainerBuilder builder;
 
-        builder.registerType<ConcreteMessageSerializer>().as< IMessageSerializer >();
-        builder.registerType<NoopMessageSerializer>().as< IMessageSerializer >().useIfNone();  // <== put 'useIfNone' into comments
+        builder.registerType<ConcreteMessageSerializer>().as<IMessageSerializer>();
+        builder.registerType<NoopMessageSerializer>().as<IMessageSerializer>().useIfNone();  // <== put 'useIfNone' into comments
 
         std::shared_ptr<Hypodermic::Container> container = builder.build();
 

@@ -158,7 +158,7 @@ Das heißt:
     Wenn wir beispielsweise eine Methode in der `DataAccess`-Klasse hinzufügen, entfernen oder umbenennen,
     müssen wir die `CustomerBusinessLogic`-Klasse entsprechend ändern bzw. anpassen.
   2. Wenn die Kundendaten von verschiedenen Datenbanken oder Web-Services zur Verfügung gestellt werden,
-    sind mehrere `CustomerBusinessLogic`-Klasse erforderlich.
+    sind mehrere `CustomerBusinessLogic`-Klassen erforderlich.
   3. Da die `CustomerBusinessLogic`-Klasse ein Objekt der konkreten `DataAccess`-Klasse erstellt,
     kann diese nicht unabhängig getestet werden (Test Driven Development).
     Die `DataAccess`-Klasse kann nicht durch eine *Mock*-Klasse ausgetauscht werden.
@@ -187,14 +187,8 @@ public:
 
 class CustomerBusinessLogic
 {
-private:
-    DataAccess* m_dataAccess;
-
 public:
-    CustomerBusinessLogic()
-    {
-        m_dataAccess = new DataAccess();
-    }
+    CustomerBusinessLogic() {}
 
     std::string GetCustomerName(int id)
     {

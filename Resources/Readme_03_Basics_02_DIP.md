@@ -18,14 +18,8 @@ Wir fahren mit dem Beispiel aus dem letzten Abschnitt fort:
 ```cpp
 class CustomerBusinessLogic
 {
-private:
-    DataAccess* m_dataAccess;
-
 public:
-    CustomerBusinessLogic()
-    {
-        m_dataAccess = new DataAccess();
-    }
+    CustomerBusinessLogic() {}
 
     std::string GetCustomerName(int id)
     {
@@ -64,20 +58,20 @@ Wenden wir jetzt das *Dependency Inversion* Prinzip für die Klassen `CustomerBus
 `DataAccess` an, um eine lose Kopplung zu erzielen:
 
 Gemäß Definition sollte ein High-Level-Modul nicht von Low-Level-Modulen abhängen.
-Beide sollte von Abstraktionen abhängen.
+Beide sollten von Abstraktionen abhängen.
 Damit müssen wir zunächst klären, welches von beiden Modulen die Rolle des High-Level-Moduls (Klasse)
-und welches das Low-Level-Modul (Klasse) ist.
+und welches des Low-Level-Moduls (Klasse) hat.
 Ein High-Level-Modul ist ein Modul, das von anderen Modulen abhängt.
 In unserem Beispiel hängt `CustomerBusinessLogic` von der `DataAccess`-Klasse ab,
 sodass `CustomerBusinessLogic` ein Modul auf höherer Ebene und `DataAccess` ein Modul
-auf niedriger Ebene ist.
+auf niedrigerer Ebene ist.
 Nach der ersten DIP-Regel sollte `CustomerBusinessLogic` also nicht von der konkreten
 `DataAccess`-Klasse abhängen, sondern beide Klassen sollten von einer Abstraktion abhängen.
 
 ###### Was ist eine Abstraktion?
 
 Abstraktion und Kapselung sind wichtige Prinzipien der objektorientierten Programmierung.
-Es gibt viele verschiedene Definitionen von verschiedenen Personen, aber lassen Sie uns die Abstraktion anhand des obigen Beispiels verstehen
+Es gibt viele verschiedene Definitionen von verschiedenen Personen, aber lassen Sie uns die Abstraktion anhand des obigen Beispiels verstehen.
 
 Abstraktion bedeutet ganz einfach formuliert, das etwas nicht konkret ist.
 In Bezug auf die Programmierung sind die oben benutzten Klassen `CustomerBusinessLogic` und `DataAccess` konkrete Klassen,
@@ -114,7 +108,7 @@ class CustomerDataAccess : public ICustomerDataAccess
 public:
     CustomerDataAccess() = default;
 
-    std::string GetCustomerName(int id) {
+    std::string GetCustomerName(int id) override {
         return "Dummy Customer Name"; // get it from DB in real app
     }
 };
