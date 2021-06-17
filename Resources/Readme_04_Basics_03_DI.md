@@ -181,7 +181,7 @@ private:
 public:
     CustomerService()
     {
-        ICustomerDataAccess iaccess = new CustomerDataAccess();
+        ICustomerDataAccess* iaccess = new CustomerDataAccess();
         m_customerBL = new CustomerBusinessLogic(iaccess);
     }
 
