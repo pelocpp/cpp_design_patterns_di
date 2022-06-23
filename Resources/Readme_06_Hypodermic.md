@@ -14,7 +14,7 @@ auf Basis des *Hypodermic* IoC Containers vorgestellt:
     * Der Container instanziiert `LengthPrefixedMessageSerializer` und übergibt dieses Objekt an den Konstruktor von `ConsoleMessageWriter`.
     * Eine neue Instanz von `ConsoleMessageWriter wird` zurückgegeben.
 
-  * *Source1.cpp*<br/>Was passiert, wenn zu einer Klasse mehrere Klassen registriert sind (`registerType`).
+  * *Source1.cpp*<br/>Was passiert, wenn zu einer Schnittstelle mehrere Klassen registriert sind (`registerType`).
   * *Source2.cpp*<br/>Pro Aufruf von `resolve` wird ein neues Objekt des registrierten Typs zurückgegeben. Mit `singleInstance` kann man dem Container explizit mitteilen, dass ein Objekt nur einmal erstellt werden soll.
   * *Source3.cpp*<br/>Wie Beipiel *Source2.cpp* / Vergleich von Adressen der Objekte. 
   * *Source4.cpp*<br/>Hypodermic Logging Mechanismus.
