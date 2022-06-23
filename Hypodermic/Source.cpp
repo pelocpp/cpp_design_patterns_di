@@ -22,7 +22,7 @@ namespace Hypodermic_Test_00 {
     class LengthPrefixedMessageSerializer : public IMessageSerializer
     {
     public:
-        void serialize(const std::string& message, std::ostream& stream) override
+        virtual void serialize(const std::string& message, std::ostream& stream) override
         {
             stream << message.size();
             stream << message;
@@ -45,11 +45,9 @@ namespace Hypodermic_Test_00 {
     {
     public:
         explicit ConsoleMessageWriter(std::shared_ptr<IMessageSerializer> serializer)
-            : m_serializer(serializer)
-        {
-        }
+            : m_serializer{ serializer } {}
 
-        void write(const std::string& message) override
+        virtual void write(const std::string& message) override
         {
             m_serializer->serialize(message, std::cout);  // <== console output
         }
@@ -57,7 +55,6 @@ namespace Hypodermic_Test_00 {
     private:
         std::shared_ptr<IMessageSerializer> m_serializer;
     };
-
 
     class Application
     {
@@ -95,8 +92,9 @@ namespace Hypodermic_Test_00 {
     void Application::run()
     {
         // container, give us an instance of `IMessageWriter`
-        std::shared_ptr<IMessageWriter> messageWriter = 
-            m_container->resolve<IMessageWriter>();
+        std::shared_ptr<IMessageWriter> messageWriter {
+            m_container->resolve<IMessageWriter>() 
+        };
 
         // allright, we now can write some message
         messageWriter->write("The app is running");

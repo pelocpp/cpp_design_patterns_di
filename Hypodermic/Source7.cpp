@@ -38,9 +38,13 @@ void test_hypodermic_07() {
             return std::make_shared< SomeConfiguration>();
         });
 
-        std::shared_ptr<Hypodermic::Container> container = builder.build();
+        std::shared_ptr<Hypodermic::Container> container{ 
+            builder.build() 
+        };
 
-        std::shared_ptr<SomeConfiguration> pConf = container->resolve<SomeConfiguration>();
+        std::shared_ptr<SomeConfiguration> pConf{
+            container->resolve<SomeConfiguration>() 
+        };
         pConf->print();
     }
     catch (std::exception ex) {

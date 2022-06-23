@@ -7,24 +7,27 @@
 
 namespace Hypodermic_Test_06 {
 
-    class IA {
+    class IA
+    {
     public:
-        virtual void sayHelloFromA() = 0;
+        virtual void sayHelloFromA() const = 0;
     };
 
-    class A : public IA {
+    class A : public IA
+    {
     public:
         A() { std::cout << "c'tor A" << std::endl; }
 
-        virtual void sayHelloFromA() override
+        virtual void sayHelloFromA() const override
         { 
             std::cout << "Say Hello from A" << std::endl;
         }
     };
 
-    class IB {
+    class IB
+    {
     public:
-        virtual void sayHelloFromB() = 0;
+        virtual void sayHelloFromB() const = 0;
     };
 
     class B : public IB
@@ -33,19 +36,22 @@ namespace Hypodermic_Test_06 {
         std::shared_ptr<IA> m_ia;
 
     public:
-        explicit B(std::shared_ptr<IA> ia) 
-            : m_ia(ia) { std::cout << "c'tor B" << std::endl; }
+        explicit B(std::shared_ptr<IA> ia) : m_ia{ ia }
+        {
+            std::cout << "c'tor B" << std::endl;
+        }
 
-        virtual void sayHelloFromB() override
+        virtual void sayHelloFromB() const override
         { 
             std::cout << "Say Hello from B" << std::endl;
             m_ia->sayHelloFromA();
         }
     };
 
-    class IC {
+    class IC
+    {
     public:
-        virtual void sayHelloFromC() = 0;
+        virtual void sayHelloFromC() const = 0;
     };
 
     class C : public IC
@@ -54,10 +60,12 @@ namespace Hypodermic_Test_06 {
         std::shared_ptr<IB> m_ib;
 
     public:
-        explicit C(std::shared_ptr<IB> ib) 
-            : m_ib(ib) { std::cout <<"c'tor C" << std::endl; }
+        explicit C(std::shared_ptr<IB> ib) : m_ib{ ib }
+        { 
+            std::cout <<"c'tor C" << std::endl;
+        }
 
-        virtual void sayHelloFromC() override
+        virtual void sayHelloFromC() const override
         {
             std::cout << "Say Hello from C" << std::endl;
             m_ib->sayHelloFromB();
@@ -75,11 +83,15 @@ void test_hypodermic_06() {
     {
         Hypodermic::ContainerBuilder builder;
         builder.registerType<A>().as<IA>();
-        builder.registerType<B>().as<IB>();   // <== put this line into comment
+        builder.registerType<B>().as<IB>();        // <== put this line into comment
         builder.registerType<C>().as<IC>();
-        std::shared_ptr<Hypodermic::Container> container = builder.build();
+        std::shared_ptr<Hypodermic::Container> container{
+            builder.build() 
+        };
 
-        std::shared_ptr<IC> pIC = container->resolve<IC>();
+        std::shared_ptr<IC> pIC{
+            container->resolve<IC>() 
+        };
         pIC->sayHelloFromC();
     }
     catch (std::exception ex) {

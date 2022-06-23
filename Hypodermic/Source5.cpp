@@ -11,7 +11,7 @@ namespace Hypodermic_Test_05 {
     class MyLoggerSink : public Hypodermic::ILoggerSink
     {
     public:
-        void append(Hypodermic::LogLevels::LogLevel level, const std::string& message) override {
+        virtual void append(Hypodermic::LogLevels::LogLevel level, const std::string& message) override {
             std::cout << ">>: " << message << std::endl;
         }
     };
@@ -26,7 +26,7 @@ namespace Hypodermic_Test_05 {
     class ConcreteMessageSerializer : public IMessageSerializer
     {
     public:
-        void write() override
+        virtual void write() override
         {
             std::cout << "it's concrete" << std::endl;
         }
@@ -35,7 +35,7 @@ namespace Hypodermic_Test_05 {
     class NoopMessageSerializer : public IMessageSerializer
     {
     public:
-        void write() override
+        virtual void write() override
         {
             std::cout << "it's a noop" << std::endl;
         }
@@ -58,9 +58,13 @@ void test_hypodermic_05() {
         builder.registerType<ConcreteMessageSerializer>().as<IMessageSerializer>();
         builder.registerType<NoopMessageSerializer>().as<IMessageSerializer>().useIfNone();  // <== put 'useIfNone' into comments
 
-        std::shared_ptr<Hypodermic::Container> container = builder.build();
+        std::shared_ptr<Hypodermic::Container> container {
+            builder.build() 
+        };
 
-        std::shared_ptr<IMessageSerializer> serializer = container->resolve<IMessageSerializer>();
+        std::shared_ptr<IMessageSerializer> serializer {
+            container->resolve<IMessageSerializer>() 
+        };
         serializer->write();
     }
     catch (std::exception ex) {

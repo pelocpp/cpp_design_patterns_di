@@ -12,20 +12,8 @@ namespace Hypodermic_Test_04 {
     class MyLoggerSink : public Hypodermic::ILoggerSink
     {
     public:
-        void append(Hypodermic::LogLevels::LogLevel level, const std::string& message) override {
+        virtual void append(Hypodermic::LogLevels::LogLevel level, const std::string& message) override {
             std::cout << ">>: " << message << std::endl;
-        }
-    };
-
-    class SomeConfiguration
-    {
-    public:
-        SomeConfiguration() {
-            std::cout << "c'tor SomeConfiguration" << std::endl;
-        }
-
-        ~SomeConfiguration() {
-            std::cout << "d'tor SomeConfiguration" << std::endl;
         }
     };
 
@@ -73,7 +61,9 @@ void test_hypodermic_04() {
         builder.registerType<Writer1>().as<IMessageWriter>();
         builder.registerType<Writer1>().as<IMessageWriter>();
 
-        std::shared_ptr<Hypodermic::Container> container = builder.build();
+        std::shared_ptr<Hypodermic::Container> container{ 
+            builder.build()
+        };
     }
     catch (std::exception ex) {
         std::cout << ex.what() << std::endl;

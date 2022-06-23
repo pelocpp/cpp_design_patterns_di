@@ -25,7 +25,7 @@ namespace Hypodermic_Test_02 {
             std::cout << "d'tor LengthPrefixedMessageSerializer" << std::endl;
         }
 
-        void serialize(const std::string& message, std::ostream& stream) override
+        virtual void serialize(const std::string& message, std::ostream& stream) override
         {
             stream << message.size();
             stream << std::string(" - ");
@@ -52,7 +52,7 @@ namespace Hypodermic_Test_02 {
             std::cout << "d'tor ConsoleMessageWriter" << std::endl;
         }
 
-        void write(const std::string& message) override
+        virtual void write(const std::string& message) override
         {
             m_serializer->serialize(message, std::cout);
             std::cout << std::endl;
@@ -79,16 +79,24 @@ void test_hypodermic_02() {
         builder.registerType<LengthPrefixedMessageSerializer>().as<IMessageSerializer>();
         builder.registerType<ConsoleMessageWriter>().as<IMessageWriter>();
 
-        // actually build the `Container` we have just configured.
-        std::shared_ptr<Hypodermic::Container> container = builder.build();
+        // actually build the `Container` we have just configured
+        std::shared_ptr<Hypodermic::Container> container {
+            builder.build() 
+        };
 
-        // container, give us an instance of `IMessageWriter`.
-        std::shared_ptr<IMessageWriter> messageWriter = container->resolve<IMessageWriter>();
+        // container, give us an instance of `IMessageWriter`
+        std::shared_ptr<IMessageWriter> messageWriter {
+            container->resolve<IMessageWriter>()
+        };
+
         messageWriter->write("ABC");
         messageWriter->write("XYZ");
 
         // note: a second object implementing 'IMessageWriter' is allocated
-        std::shared_ptr<IMessageWriter> messageWriter2 = container->resolve<IMessageWriter>();
+        std::shared_ptr<IMessageWriter> messageWriter2 {
+            container->resolve<IMessageWriter>()
+        };
+
         messageWriter2->write("123456789");
     }
     catch (std::exception ex) {
