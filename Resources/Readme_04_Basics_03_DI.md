@@ -154,7 +154,7 @@ public:
 class CustomerBusinessLogic
 {
 private:
-    ICustomerDataAccess m_custDataAccess;
+    ICustomerDataAccess* m_custDataAccess;
 
 public:
     CustomerBusinessLogic(ICustomerDataAccess* custDataAccess)
